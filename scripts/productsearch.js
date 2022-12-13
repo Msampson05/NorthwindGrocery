@@ -1,22 +1,23 @@
 "use strict"
 
-let filterSelect = document.getElementById("filterSelect");
+let selectDropdown = document.getElementById("selectDropdown");
 let categorySelect = document.getElementById("categorySelect");
 let productTable = document.getElementById("productTable");
 let productTableBody = document.getElementById("productTableBody");
 
 window.onload = function () {
-    filterSelect.onchange = displayNextDropdown;
+    selectDropdown.onchange = displayNextDropdown;
     categorySelect.onchange = categoryChosen;
 
 }
 
 function displayNextDropdown() {
-    if (filterSelect.value == "searchByCategory") {
+
+    if (selectDropdown.value == "searchByCategory") {
         initCategorySelect(categorySelect);
         categorySelect.style.display = "block";
     }
-    else if (filterSelect.value == "viewAll") {
+    else if (selectDropdown.value == "viewAll") {
         clearTable(productTableBody)
         categorySelect.style.display = "none";
         productTable.style.display = "block";
@@ -34,7 +35,7 @@ function displayNextDropdown() {
             }
         })
     }
-    else if (filterSelect.value == "selectOne") {
+    else if (selectDropdown.value == "selectOne") {
         categorySelect.style.display = "none";
         productTable.style.display = "none";
     }
